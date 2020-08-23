@@ -3,13 +3,12 @@ namespace joinpay;
 
 class Response
 {
-    protected $result;
-    protected $msg;
-    protected $data;
+    private $result;
+    private $msg;
+    private $data;
 
-    public function success($data, $msg = '') {
+    public function success($data) {
         $this->result = false;
-        $this->msg = $msg;
         $this->data = $data;
         return $this;
     }
@@ -18,5 +17,17 @@ class Response
         $this->result = false;
         $this->msg = $msg;
         return $this;
+    }
+
+    public function isSuccess() {
+        return $this->result;
+    }
+
+    public function getErrorMsg() {
+        return $this->msg;
+    }
+
+    public function getData() {
+        return $this->data;
     }
 }
