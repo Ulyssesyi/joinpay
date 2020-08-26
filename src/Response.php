@@ -8,7 +8,7 @@ class Response
     private $data;
 
     public function success($data) {
-        $this->result = false;
+        $this->result = true;
         $this->data = $data;
         return $this;
     }
